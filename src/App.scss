@@ -13,6 +13,12 @@
   --unselected-mail: #f1f2f7;
   --calendar-border-color: #cbcfe0;
   --main-container-bg: #f0f0f7;
+
+  // department colors
+  --marketing-color: #b36dfb;
+  --design-color: #625be8;
+  --development-color: #fec267;
+  --management-color: #fc6679;
 }
 
 body {
@@ -42,8 +48,12 @@ aside {
   }
 }
 
+.side-wrapper {
+  padding: 1.5em 2em;
+  border-bottom: 1px solid var(--border-color);
+}
+
 .profile {
-  padding: 1em 2em;
   text-align: center;
 
   .profile-picture {
@@ -84,6 +94,104 @@ aside {
 
     .amount {
       font-weight: bold;
+    }
+
+    .category,
+    .item {
+      color: var(--main-color);
+    }
+
+    .category {
+      font-weight: 600;
+      font-size: 0.8em;
+      margin-top: 1.5em;
+      margin-bottom: 0.4em;
+      display: block;
+    }
+
+    .item {
+      font-size: 0.7em;
+      font-weight: 500;
+      color: var(--main-light-color);
+    }
+  }
+
+  .ratio {
+    display: block;
+    text-align: right;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-top: 2.5em;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 1em;
+    background-color: var(--button-bg-color);
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+
+    .amount {
+      width: 50%;
+      height: 100%;
+      border-radius: 1em;
+      background-color: var(--button-color);
+    }
+  }
+
+  .side-wrapper.projects {
+    text-align: left;
+
+    ul li {
+      margin-top: 1.5em;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--main-color);
+      position: relative;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: bottom;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 3px solid;
+        margin-right: 1em;
+      }
+
+      &:nth-of-type(1):before {
+        border-color: var(--marketing-color);
+      }
+
+      &:nth-of-type(2):before {
+        border-color: var(--design-color);
+      }
+
+      &:nth-of-type(3):before {
+        border-color: var(--development-color);
+      }
+
+      &:nth-of-type(4):before {
+        border-color: var(--management-color);
+      }
+    }
+  }
+
+  .side-wrapper.team {
+    text-align: left;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5em;
+    }
+
+    img {
+      width: 36px;
+      height: 36px;
     }
   }
 }

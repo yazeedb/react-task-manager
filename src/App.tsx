@@ -16,26 +16,33 @@ function App() {
         <h3 className="app-title">TASK MANAGER</h3>
 
         <section className="profile">
-          <img src="logo192.png" alt="React Logo" className="profile-picture" />
+          <div className="side-wrapper">
+            <img
+              src="logo192.png"
+              alt="React Logo"
+              className="profile-picture"
+            />
 
-          <h4 className="name">Yazeed Bzadough</h4>
-          <h6 className="email">ybzadough@gmail.com</h6>
+            <h4 className="name">Yazeed Bzadough</h4>
+            <h6 className="email">ybzadough@gmail.com</h6>
 
-          <div>
-            <button>
-              <FaCog />
-            </button>
-            <button>
-              <MdEmail />
-            </button>
-            <button>
-              <FaBell />
-            </button>
-          </div>
+            <div>
+              <button>
+                <FaCog />
+              </button>
+              <button>
+                <MdEmail />
+              </button>
+              <button>
+                <FaBell />
+              </button>
+            </div>
 
-          <div>
-            <span className="ratio">12/34</span>
-            <div className="progress" />
+            <span className="ratio">12/24</span>
+
+            <div className="progress-bar">
+              <div className="amount"></div>
+            </div>
 
             <div className="columns">
               <div className="column">
@@ -62,6 +69,39 @@ function App() {
                 <span className="item">completed</span>
               </div>
             </div>
+          </div>
+
+          <div className="side-wrapper projects">
+            <h4>PROJECTS</h4>
+
+            <ul>
+              <li>Marketing</li>
+              <li>Design</li>
+              <li>Development</li>
+              <li>Management</li>
+            </ul>
+          </div>
+
+          <div className="side-wrapper team">
+            <h4>TEAM</h4>
+
+            <ul>
+              <li>
+                <img src="logo192.png" alt="React Logo" />
+              </li>
+              <li>
+                <img src="logo192.png" alt="React Logo" />
+              </li>
+              <li>
+                <img src="logo192.png" alt="React Logo" />
+              </li>
+              <li>
+                <img src="logo192.png" alt="React Logo" />
+              </li>
+              <li>
+                <img src="logo192.png" alt="React Logo" />
+              </li>
+            </ul>
           </div>
         </section>
       </aside>
