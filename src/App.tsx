@@ -13,7 +13,7 @@ function App() {
   return (
     <main>
       <aside>
-        <h3 className="app-title">TASK MANAGER</h3>
+        <h4 className="app-title">TASK MANAGER</h4>
 
         <section className="profile">
           <div className="side-wrapper">
