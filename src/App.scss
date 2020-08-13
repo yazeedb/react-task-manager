@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+:root {
+  --body-bg-color: #e4e6f5;
+  --border-color: #e5e4e9;
+  --theme-bg-color: #fff;
+  --body-color: #1b1f31;
+  --main-color: #7a7e9d;
+  --main-light-color: #a1a4b9;
+  --title-color: #979dc3;
+  --body-font: 'Jost', sans-serif;
+  --button-bg-color: #eaeefc;
+  --button-color: #4d76fd;
+  --unselected-mail: #f1f2f7;
+  --calendar-border-color: #cbcfe0;
+  --main-container-bg: #f0f0f7;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  padding: 0.5em;
+  font-family: var(--body-font);
+}
+
+main {
+  background-color: var(--theme-bg-color);
+  max-width: 1600px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+aside {
+  min-width: 360px;
+  border-right: 1px solid var(--border-color);
+
+  .app-title {
+    text-align: center;
+    padding: 1.7em;
+    color: var(--title-color);
+    font-weight: bold;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.profile {
+  padding: 1em 2em;
+  text-align: center;
+
+  .profile-picture {
+    width: 70px;
+    height: 70px;
+  }
+
+  .name {
+    margin: 0.5em 0;
+    font-weight: bold;
+  }
+
+  .email {
+    color: var(--main-light-color);
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+  }
+
+  button {
+    width: 36px;
+    margin: 0 1em;
+    background-color: var(--button-bg-color);
+    border-radius: 50%;
+    border: none;
+    padding: 0.6em;
+    color: var(--button-color);
+
+    svg {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+    }
+  }
+
+  .columns {
+    display: flex;
+    justify-content: space-between;
+
+    .amount {
+      font-weight: bold;
+    }
+  }
+}
+
+header {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5em;
+}
+
+.color-picker-wrapper label {
+  margin-right: 0.5em;
+}
+
+.switch {
+  cursor: pointer;
+  position: relative;
+  width: 220px;
+  background-color: var(--unselected-mail);
+  padding: 0.5em 2em;
+  border-radius: 1em;
+  display: flex;
+  justify-content: space-between;
+
+  .choice {
+    z-index: 1;
+    font-weight: 500;
+    font-size: 0.8em;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+
+    ~ .choice:first-of-type {
+      color: var(--theme-bg-color);
+    }
+
+    ~ .choice:last-of-type {
+      color: var(--main-light-color);
+    }
+
+    &:checked {
+      + .toggle {
+        left: 110px;
+      }
+
+      ~ .choice:first-of-type {
+        color: var(--main-light-color);
+      }
+
+      ~ .choice:last-of-type {
+        color: var(--theme-bg-color);
+      }
+    }
+  }
+
+  .toggle {
+    background-color: var(--button-color);
+    border-radius: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transition: ease 0.3s left;
+  }
+}
