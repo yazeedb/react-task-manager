@@ -10,7 +10,7 @@ interface User {
 interface Task {
   title: string;
   isComplete: boolean;
-  created: number;
+  createdAt: number;
   description: string;
   attachments: [];
   activity: [];
@@ -43,7 +43,7 @@ export const mockData: Data = {
         {
           title: 'Create sales funnel',
           isComplete: false,
-          created: new Date('2020-01-01').getTime(),
+          createdAt: new Date('2020-01-01').getTime(),
           description: '',
           attachments: [],
           activity: [],
@@ -51,7 +51,7 @@ export const mockData: Data = {
         {
           title: 'Read that marketing book',
           isComplete: true,
-          created: new Date('2019-11-27').getTime(),
+          createdAt: new Date('2019-11-27').getTime(),
           description: '',
           attachments: [],
           activity: [],
@@ -59,7 +59,7 @@ export const mockData: Data = {
         {
           title: 'Follow up with Dr. Scholl',
           isComplete: true,
-          created: new Date('2020-05-10').getTime(),
+          createdAt: new Date('2020-05-10').getTime(),
           description: '',
           attachments: [],
           activity: [],
@@ -72,7 +72,7 @@ export const mockData: Data = {
         {
           title: 'Redesign landing page',
           isComplete: true,
-          created: new Date('2020-02-22').getTime(),
+          createdAt: new Date('2020-02-22').getTime(),
           description: '',
           attachments: [],
           activity: [],
@@ -80,7 +80,7 @@ export const mockData: Data = {
         {
           title: 'Finish Scrimba course',
           isComplete: false,
-          created: new Date('2020-04-05').getTime(),
+          createdAt: new Date('2020-04-05').getTime(),
           description: '',
           attachments: [],
           activity: [],
@@ -93,7 +93,7 @@ export const mockData: Data = {
         {
           title: 'Write an article about design',
           isComplete: false,
-          created: new Date('2020-03-01').getTime(),
+          createdAt: new Date('2020-03-01').getTime(),
           description: '',
           attachments: [],
           activity: [],
@@ -106,7 +106,7 @@ export const mockData: Data = {
         {
           title: 'Learn management',
           isComplete: false,
-          created: new Date('2020-03-01').getTime(),
+          createdAt: new Date('2020-03-01').getTime(),
           description: '',
           attachments: [],
           activity: [],

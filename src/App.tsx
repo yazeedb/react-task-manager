@@ -14,6 +14,15 @@ function App() {
   const completedCount = countCompleteTasks(mockData.folders);
   const totalTasks = getTotalTasks(mockData.folders);
 
+  const [activeFolder, setActiveFolder] = useState(mockData.folders[0]);
+  const selectFolder = (name: string) => {
+    const folder = mockData.folders.find((f) => f.name === name);
+
+    if (folder) {
+      setActiveFolder(folder);
+    }
+  };
+
   return (
     <main>
       <aside>
@@ -105,34 +114,68 @@ function App() {
           </div>
         </section>
       </aside>
-      <header>
-        <div className="flex-wrapper search">
-          <FaSearch />
-          <input type="text" placeholder="Search..." id="search" />
-        </div>
 
-        <div className="flex-wrapper switch">
-          <label htmlFor="switch" className="switch-component">
-            <input type="checkbox" id="switch" />
+      <div style={{ width: '100%' }}>
+        <header>
+          <div className="flex-wrapper search">
+            <FaSearch />
+            <input type="text" placeholder="Search..." id="search" />
+          </div>
 
-            <div className="toggle" />
+          <div className="flex-wrapper switch">
+            <label htmlFor="switch" className="switch-component">
+              <input type="checkbox" id="switch" />
 
-            <span className="choice">Inbox</span>
-            <span className="choice">Calendar</span>
-          </label>
-        </div>
+              <div className="toggle" />
 
-        <div className="flex-wrapper color-picker">
-          <label htmlFor="color-picker">Theme</label>
+              <span className="choice">Inbox</span>
+              <span className="choice">Calendar</span>
+            </label>
+          </div>
 
-          <input
-            type="color"
-            id="color-picker"
-            value={themeColor}
-            onChange={(e) => setThemeColor(e.currentTarget.value)}
-          />
-        </div>
-      </header>
+          <div className="flex-wrapper color-picker">
+            <label htmlFor="color-picker">Theme</label>
+
+            <input
+              type="color"
+              id="color-picker"
+              value={themeColor}
+              onChange={(e) => setThemeColor(e.currentTarget.value)}
+            />
+          </div>
+        </header>
+
+        <section className="active-folder">
+          <select
+            name="folder"
+            id="folder"
+            value={activeFolder.name}
+            onChange={(event) => selectFolder(event.currentTarget.value)}
+          >
+            {mockData.folders.map((f) => (
+              <option value={f.name} key={f.name}>
+                {f.name}
+              </option>
+            ))}
+          </select>
+
+          <ul>
+            {activeFolder.tasks.map((t) => (
+              <li key={t.title}>
+                <input
+                  type="checkbox"
+                  name={t.title}
+                  id={t.title}
+                  checked={t.isComplete}
+                  onChange={() => {}}
+                />
+                {t.title}
+                {t.createdAt}
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }
