@@ -1,4 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
+import Select from 'react-select';
 import { FaCog, FaBell, FaSearch } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { mockData, getTotalTasks, countCompleteTasks } from './data';
@@ -15,13 +16,6 @@ function App() {
   const totalTasks = getTotalTasks(mockData.folders);
 
   const [activeFolder, setActiveFolder] = useState(mockData.folders[0]);
-  const selectFolder = (name: string) => {
-    const folder = mockData.folders.find((f) => f.name === name);
-
-    if (folder) {
-      setActiveFolder(folder);
-    }
-  };
 
   return (
     <main>
@@ -146,18 +140,29 @@ function App() {
         </header>
 
         <section className="active-folder">
-          <select
-            name="folder"
-            id="folder"
-            value={activeFolder.name}
-            onChange={(event) => selectFolder(event.currentTarget.value)}
-          >
-            {mockData.folders.map((f) => (
-              <option value={f.name} key={f.name}>
-                {f.name}
-              </option>
-            ))}
-          </select>
+          <Select
+            name="folders"
+            id="folders"
+            options={mockData.folders.map((f) => ({
+              value: f.name,
+              label: f.name,
+            }))}
+            value={{
+              value: activeFolder.name,
+              label: activeFolder.name,
+            }}
+            onChange={(option: SelectOption) => {
+              const folder = mockData.folders.find(
+                (f) => f.name === option.value
+              );
+
+              if (!folder) {
+                return;
+              }
+
+              setActiveFolder(folder);
+            }}
+          />
 
           <ul>
             {activeFolder.tasks.map((t) => (
@@ -178,6 +183,11 @@ function App() {
       </div>
     </main>
   );
+}
+
+interface SelectOption {
+  value: string;
+  label: string;
 }
 
 export default App;
