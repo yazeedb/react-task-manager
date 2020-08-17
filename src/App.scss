@@ -301,7 +301,7 @@ header {
     display: flex;
     align-items: center;
     background-color: var(--unselected-mail);
-    padding: 1.5em;
+    padding: 2em 1.5em;
 
     &.complete {
       background-color: var(--theme-bg-color);
