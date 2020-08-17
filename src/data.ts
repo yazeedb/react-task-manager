@@ -14,6 +14,7 @@ interface Task {
   description: string;
   attachments: [];
   activity: [];
+  creatorProfilePicture: string;
 }
 
 interface Folder {
@@ -42,27 +43,75 @@ export const mockData: Data = {
       tasks: [
         {
           title: 'Create sales funnel',
-          isComplete: false,
+          isComplete: true,
           createdAt: new Date('2020-01-01').getTime(),
           description: '',
           attachments: [],
           activity: [],
+          creatorProfilePicture: '/logo192.png',
         },
         {
           title: 'Read that marketing book',
-          isComplete: true,
+          isComplete: false,
           createdAt: new Date('2019-11-27').getTime(),
           description: '',
           attachments: [],
           activity: [],
+          creatorProfilePicture: '/logo192.png',
         },
         {
-          title: 'Follow up with Dr. Scholl',
+          title: 'Read another marketing book',
           isComplete: true,
           createdAt: new Date('2020-05-10').getTime(),
           description: '',
           attachments: [],
           activity: [],
+          creatorProfilePicture: '/logo192.png',
+        },
+        {
+          title: 'Create a 1-page marketing plan',
+          isComplete: false,
+          createdAt: new Date('2020-05-10').getTime(),
+          description: '',
+          attachments: [],
+          activity: [],
+          creatorProfilePicture: '/logo192.png',
+        },
+        {
+          title: 'Read yet another marketing book',
+          isComplete: false,
+          createdAt: new Date('2020-05-10').getTime(),
+          description: '',
+          attachments: [],
+          activity: [],
+          creatorProfilePicture: '/logo192.png',
+        },
+        {
+          title: 'Take a marketing course',
+          isComplete: true,
+          createdAt: new Date('2020-05-10').getTime(),
+          description: '',
+          attachments: [],
+          activity: [],
+          creatorProfilePicture: '/logo192.png',
+        },
+        {
+          title: 'Build another sales funnel',
+          isComplete: false,
+          createdAt: new Date('2020-05-10').getTime(),
+          description: '',
+          attachments: [],
+          activity: [],
+          creatorProfilePicture: '/logo192.png',
+        },
+        {
+          title: 'Talk to marketing specialist',
+          isComplete: false,
+          createdAt: new Date('2020-05-10').getTime(),
+          description: '',
+          attachments: [],
+          activity: [],
+          creatorProfilePicture: '/logo192.png',
         },
       ],
     },
@@ -76,6 +125,7 @@ export const mockData: Data = {
           description: '',
           attachments: [],
           activity: [],
+          creatorProfilePicture: '/logo192.png',
         },
         {
           title: 'Finish Scrimba course',
@@ -84,6 +134,7 @@ export const mockData: Data = {
           description: '',
           attachments: [],
           activity: [],
+          creatorProfilePicture: '/logo192.png',
         },
       ],
     },
@@ -97,6 +148,7 @@ export const mockData: Data = {
           description: '',
           attachments: [],
           activity: [],
+          creatorProfilePicture: '/logo192.png',
         },
       ],
     },
@@ -110,6 +162,7 @@ export const mockData: Data = {
           description: '',
           attachments: [],
           activity: [],
+          creatorProfilePicture: '/logo192.png',
         },
       ],
     },

@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect } from 'react';
 import Select from 'react-select';
 import { FaCog, FaBell, FaSearch } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import format from 'date-fns/format';
 import { mockData, getTotalTasks, countCompleteTasks } from './data';
 import './App.scss';
 
@@ -166,16 +167,32 @@ function App() {
 
           <ul>
             {activeFolder.tasks.map((t) => (
-              <li key={t.title}>
+              <li
+                className={t.isComplete ? 'task complete' : 'task'}
+                key={t.title}
+              >
                 <input
                   type="checkbox"
                   name={t.title}
                   id={t.title}
                   checked={t.isComplete}
                   onChange={() => {}}
+                  className="is-complete"
                 />
-                {t.title}
-                {t.createdAt}
+
+                <div className="title-date-wrapper">
+                  <p className="title">{t.title}</p>
+
+                  <p className="created-at">
+                    {format(t.createdAt, 'dd MMM, yyyy')}
+                  </p>
+                </div>
+
+                <img
+                  className="profile-picture"
+                  src={t.creatorProfilePicture}
+                  alt="img"
+                />
               </li>
             ))}
           </ul>
