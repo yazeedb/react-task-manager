@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { FaCog, FaBell } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { mockData, getTotalTasks, countCompleteTasks } from './data';
 import './App.scss';
 
 function App() {
@@ -9,6 +10,9 @@ function App() {
   useLayoutEffect(() => {
     document.body.style.setProperty('--button-color', themeColor);
   }, [themeColor]);
+
+  const completedCount = countCompleteTasks(mockData.folders);
+  const totalTasks = getTotalTasks(mockData.folders);
 
   return (
     <main>
@@ -23,8 +27,10 @@ function App() {
               className="profile-picture"
             />
 
-            <h4 className="name">Yazeed Bzadough</h4>
-            <h6 className="email">ybzadough@gmail.com</h6>
+            <h4 className="name">
+              {mockData.user.firstName} {mockData.user.lastName}
+            </h4>
+            <h6 className="email">{mockData.user.email}</h6>
 
             <div>
               <button>
@@ -38,10 +44,17 @@ function App() {
               </button>
             </div>
 
-            <span className="ratio">12/24</span>
+            <span className="ratio">
+              {completedCount}/{totalTasks}
+            </span>
 
             <div className="progress-bar">
-              <div className="amount"></div>
+              <div
+                className="amount"
+                style={{
+                  width: `${(completedCount / totalTasks) * 100}%`,
+                }}
+              />
             </div>
 
             <div className="columns">
@@ -75,10 +88,9 @@ function App() {
             <h4>PROJECTS</h4>
 
             <ul>
-              <li>Marketing</li>
-              <li>Design</li>
-              <li>Development</li>
-              <li>Management</li>
+              {mockData.folders.map((f) => (
+                <li key={f.name}>{f.name}</li>
+              ))}
             </ul>
           </div>
 
@@ -86,21 +98,9 @@ function App() {
             <h4>TEAM</h4>
 
             <ul>
-              <li>
-                <img src="logo192.png" alt="React Logo" />
-              </li>
-              <li>
-                <img src="logo192.png" alt="React Logo" />
-              </li>
-              <li>
-                <img src="logo192.png" alt="React Logo" />
-              </li>
-              <li>
-                <img src="logo192.png" alt="React Logo" />
-              </li>
-              <li>
-                <img src="logo192.png" alt="React Logo" />
-              </li>
+              {mockData.team.map((u) => (
+                <img src={u.profilePicture} alt="React Logo" key={u.id} />
+              ))}
             </ul>
           </div>
         </section>

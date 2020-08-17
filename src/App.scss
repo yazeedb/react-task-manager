@@ -132,10 +132,11 @@ aside {
     margin-bottom: 1.5em;
 
     .amount {
-      width: 50%;
+      width: 0;
       height: 100%;
       border-radius: 1em;
       background-color: var(--button-color);
+      transition: ease 0.3s width;
     }
   }
 
@@ -143,6 +144,7 @@ aside {
     text-align: left;
 
     ul li {
+      text-transform: capitalize;
       margin-top: 1.5em;
       font-size: 0.8em;
       font-weight: 600;
