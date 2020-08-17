@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-import { FaCog, FaBell } from 'react-icons/fa';
+import { FaCog, FaBell, FaSearch } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { mockData, getTotalTasks, countCompleteTasks } from './data';
 import './App.scss';
@@ -106,18 +106,23 @@ function App() {
         </section>
       </aside>
       <header>
-        <input type="text" placeholder="Search..." />
+        <div className="flex-wrapper search">
+          <FaSearch />
+          <input type="text" placeholder="Search..." id="search" />
+        </div>
 
-        <label htmlFor="switch" className="switch">
-          <input type="checkbox" id="switch" />
+        <div className="flex-wrapper switch">
+          <label htmlFor="switch" className="switch-component">
+            <input type="checkbox" id="switch" />
 
-          <div className="toggle" />
+            <div className="toggle" />
 
-          <span className="choice">Inbox</span>
-          <span className="choice">Calendar</span>
-        </label>
+            <span className="choice">Inbox</span>
+            <span className="choice">Calendar</span>
+          </label>
+        </div>
 
-        <div className="color-picker-wrapper">
+        <div className="flex-wrapper color-picker">
           <label htmlFor="color-picker">Theme</label>
 
           <input

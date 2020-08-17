@@ -200,16 +200,45 @@ header {
   display: flex;
   align-items: flex-start;
   width: 100%;
-  justify-content: space-between;
   border-bottom: 1px solid var(--border-color);
-  padding: 1.5em;
+  padding: 1em 2em;
+
+  .flex-wrapper {
+    flex: 1;
+
+    &.switch label {
+      // center label inside switch
+      margin: 0 auto;
+    }
+
+    &.color-picker {
+      // To evenly align color-picker
+      text-align: right;
+    }
+  }
+
+  .flex-wrapper.search {
+    display: flex;
+    align-items: center;
+
+    svg,
+    input::placeholder {
+      color: var(--main-light-color);
+    }
+
+    input {
+      border: none;
+      padding: 0.8em;
+      outline: none;
+    }
+  }
 }
 
-.color-picker-wrapper label {
+.flex-wrapper.color-picker label {
   margin-right: 0.5em;
 }
 
-.switch {
+.switch-component {
   cursor: pointer;
   position: relative;
   width: 220px;
