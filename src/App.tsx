@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-import { FaCog, FaMailBulk, FaBell } from 'react-icons/fa';
+import { FaCog, FaBell } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import './App.scss';
 
