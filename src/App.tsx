@@ -59,7 +59,7 @@ function App() {
 
             <div className="columns">
               <div className="column">
-                <h4 className="amount">12</h4>
+                <h4 className="amount">{completedCount}</h4>
 
                 <span className="category">Completed</span>
 
@@ -67,7 +67,7 @@ function App() {
               </div>
 
               <div className="column">
-                <h4 className="amount">22</h4>
+                <h4 className="amount">{totalTasks - completedCount}</h4>
 
                 <span className="category">To do</span>
 
@@ -75,7 +75,7 @@ function App() {
               </div>
 
               <div className="column">
-                <h4 className="amount">242</h4>
+                <h4 className="amount">{completedCount}</h4>
 
                 <span className="category">All</span>
 
