@@ -6,6 +6,8 @@ import format from 'date-fns/format';
 import { mockData, getTotalTasks, countCompleteTasks } from './data';
 import './App.scss';
 
+const folderColors = ['#b36dfb', '#625be8', '#fec267', '#fc6679'];
+
 function App() {
   const [themeColor, setThemeColor] = useState('#4d76fd');
 
@@ -162,6 +164,38 @@ function App() {
               }
 
               setActiveFolder(folder);
+            }}
+            styles={{
+              control: (styles: any) => ({
+                ...styles,
+                borderRadius: 0,
+                borderTop: 0,
+                borderRight: 0,
+              }),
+              option: (styles: any) => {
+                return {
+                  ...styles,
+                  textTransform: 'capitalize',
+                };
+              },
+              valueContainer: (styles: any, { getValue, options }: any) => {
+                const [option] = getValue();
+                const index = options.findIndex(
+                  (o: any) => o.value === option.value
+                );
+
+                return {
+                  ...styles,
+                  padding: '1.5em 1.75em',
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  borderLeft: '0.25em solid',
+                  borderColor: folderColors[index],
+                  borderRight: 0,
+                };
+              },
+
+              indicatorSeparator: () => ({ display: 'none' }),
             }}
           />
 
